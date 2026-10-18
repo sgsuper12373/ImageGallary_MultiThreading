@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MultiThreadingExperiment (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "MultiThreadingExperiment (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

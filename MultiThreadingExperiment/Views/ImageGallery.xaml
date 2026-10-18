@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="MultiThreadingExperiment.Views.ImageGallery"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MultiThreadingExperiment.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Border 
+            BorderBrush="red"
+            BorderThickness="1"
+            CornerRadius="8"
+            Padding="8">
+
+            <StackPanel>
+                
+                
+                <GridView ItemsSource="{Binding Images}"
+                          SelectionMode="Single"
+                          IsItemClickEnabled="false"
+                          ScrollViewer.HorizontalScrollMode="Disabled"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          ScrollViewer.VerticalScrollMode="Auto"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid Orientation="Horizontal" ItemWidth="140" ItemHeight="140"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="6"   Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                                <Image Source="{Binding ImagePath}" Stretch="UniformToFill" />
+                            </Border>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+
+
+                </GridView>
+
+
+                <Button Content="Refresh Images" Click="RefreshImagesButton" />
+                
+            </StackPanel>
+            
+        </Border>
+
+    </Grid>
+</UserControl>
